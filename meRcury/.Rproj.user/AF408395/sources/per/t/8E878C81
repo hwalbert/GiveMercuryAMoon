@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538168621429.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3558290914",
+    "id" : "8E878C81",
+    "lastKnownWriteTime" : 1538169422,
+    "last_content_update" : 1538169422622,
+    "path" : "~/Mercury/meRcury/R/ExpandEgypt.R",
+    "project_path" : "R/ExpandEgypt.R",
+    "properties" : {
+        "cursorPosition" : "15,55",
+        "scrollLine" : "10",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
