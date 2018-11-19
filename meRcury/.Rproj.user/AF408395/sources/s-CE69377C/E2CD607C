@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4236130208",
+    "hash" : "0",
     "id" : "E2CD607C",
     "lastKnownWriteTime" : 1538168872,
     "last_content_update" : 1538168872955,
-    "path" : "~/Mercury/meRcury/R/ExtractEgypt.R",
+    "path" : "~/GitHub/GiveMercuryAMoon/meRcury/R/ExtractEgypt.R",
     "project_path" : "R/ExtractEgypt.R",
     "properties" : {
-        "cursorPosition" : "49,0",
+        "cursorPosition" : "22,67",
         "scrollLine" : "0",
         "tempName" : "Untitled1"
     },

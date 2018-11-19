@@ -141,10 +141,10 @@
 #   assign(paste(FieldType, "_List", sep = ""), TallData, envir = globalenv())
 # }
 #
-#
-# library(ggmap)
-# map <- get_map(location = 'Cairo, Egypt', zoom = 12)
-# mapPoints <- ggmap(map) + geom_point(aes(x = longitude, y = latitude, size = 1), data = AllData2, alpha = .5)
-# plot(mapPoints)
-# newmap <- getMap(resolution = "low")
-# plot(newmap, xlim = c(-122, 142), ylim = c(-25, 62), asp = 1)
+
+library(ggmap)
+map <- get_map(location = 'Cairo, Egypt', zoom = 12)
+mapPoints <- ggmap(map) + geom_point(aes(x = longitude, y = latitude, size = 1), data = AllData2, alpha = .5)
+plot(mapPoints)
+newmap <- getMap(resolution = "low")
+plot(newmap, xlim = c(-122, 142), ylim = c(-25, 62), asp = 1)

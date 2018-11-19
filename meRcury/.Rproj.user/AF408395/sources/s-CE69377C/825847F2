@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1956501393",
+    "hash" : "0",
     "id" : "825847F2",
-    "lastKnownWriteTime" : 1538166488,
-    "last_content_update" : 1538166488566,
+    "lastKnownWriteTime" : 1538697689,
+    "last_content_update" : 1538697689725,
     "path" : "~/Mercury/Mercury Project - Code and Data/Code/GDELT Piece.R",
     "project_path" : null,
     "properties" : {
-        "cursorPosition" : "150,0",
+        "cursorPosition" : "146,0",
         "scrollLine" : "0"
     },
     "relative_order" : 2,
