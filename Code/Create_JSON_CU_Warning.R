@@ -14,4 +14,6 @@ my.submission <- data.frame(
 )
 
 # Write the submission to a .json file
-toJSON(my.submission)
+write_json(x = my.submission, 
+           path = paste0(choose.dir(), "/", my.submission$Warning_ID, ".json") 
+           )
