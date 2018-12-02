@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543782727297.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "784F5B0E",
+    "lastKnownWriteTime" : 1543782744,
+    "last_content_update" : 1543782744056,
+    "path" : "~/GitHub/GiveMercuryAMoon/meRcury/R/ExtractEgypt.R",
+    "project_path" : "R/ExtractEgypt.R",
+    "properties" : {
+        "cursorPosition" : "25,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

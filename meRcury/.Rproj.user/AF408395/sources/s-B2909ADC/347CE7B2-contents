@@ -1,0 +1,9 @@
+UpdateGDELT <- function(){
+  AllGDELT <- fread(file = "~/GitHub/GiveMercuryAMoon/Data/GDELT_EGYPT.csv")
+  AllGDELT$Date <- as.Date(AllGDELT$Date, format = "%Y-%m-%d")
+  dates <- unique(AllGDELT$Date)
+  NewDatesNeeded <- as.Date((max(dates)+1):Sys.Date(), format = "%Y-%m-%d", origin = "1970-01-01")
+}
+
+
+GetGDELT(SpecificDates = NewDatesNeeded)

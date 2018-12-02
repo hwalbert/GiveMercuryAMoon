@@ -1,0 +1,100 @@
+#' @title ETL Egypt GDELT data
+#' @description # a giant for loop that downloads gdelt data for a given month, extracts the egypt related info, combines it, saves it to a master folder, and deletes them if all of the above is done successfully
+#'
+#' @param MasterFile A dataframe created by the CleanDEAMSFile function that includes a 55th column for TCodes.
+#' @param OldFormat Defaults to False.  When true it will analyze the old format (46 columns DEAMS dataset)
+#' @return Returns a data frame to the global environment showing the debit/credit results.
+#' @examples DebitCreditCompare(MasterFile)
+#' 
+#' 
+
+ETL_Egypt_GDELT <- function(StDate = "", EndDate = )
+# folder structure
+icesTAF::mkdir(paste0(getwd(),location,'/Master'))
+
+# a giant for loop that downloads gdelt data for a given month,
+# extracts the egypt related info, combines it, saves it to a master folder,
+# and deletes them if all of the above is done successfully
+# Enter in start date and end date
+
+for (Month in seq.Date(from=as.Date('2015-04-01'),to=as.Date('2015-04-01'),by='month')){
+  #create folder
+  icesTAF::mkdir(paste0(getwd(),location,as_date(Month)))
+  for (i in seq.Date(from=as_date(Month),as_date(Month)+months(1)-days(1),by='day')){
+    print(as_date(i))
+    suppressWarnings(suppressMessages(GetGDELT(SpecificDates = as_date(i),
+                                               location=paste0(getwd(),location,as_date(Month)))))
+    
+  }
+  #once downloaded, let's combine
+  lst.egypt<-
+    lapply(X = dir(paste0(getwd(),location,as_date(Month))),
+           FUN = function(X){
+             print(paste0("Read GDELT data from ",X))
+             egypt<-fread(paste0(paste0(getwd(),location,as_date(Month)),'/',X))
+             #filter broken entries
+             egypt<-egypt[is.Date(as_date(substr(dateTimeDocument,0,10)))]
+           }
+    )
+  egypt_gdelt <- rbindlist(lst.egypt)
+  
+  #perform sanity checks
+  message<-c()
+  #check filter outputed non-zero items
+  if(nrow(egypt_gdelt)!=0){
+    message<-c(message,'Output check is good')
+    
+    #check # of columns (needs 29 columns)
+    if(ncol(egypt_gdelt)==29){
+      message<-c(message,'Column check is good')
+      
+      #check dates on dateTimeDocument are in deed from that month
+      if(sum(format(as_date(substr(egypt_gdelt$dateTimeDocument,0,10)),
+                    '%Y-%m-01')!=as_date(Month))==0){
+        message<-c(message,'Date check is good')
+        #write to master folder
+        fwrite(egypt_gdelt, file = paste0(getwd(),location,'/Master/',as_date(Month),'-filtered_gdelt.csv'))
+        #delete original month (for size reasons)
+        sapply(X = paste0(paste0(getwd(),location,as_date(Month)),'/',
+                          dir(paste0(getwd(),location,as_date(Month)))),FUN = file.remove)
+      }else{
+        message<-c(message,'Date check failed')
+      }
+    }else{
+      message<-c(message,'Column check failed')
+    }
+  }else{
+    message<-c(message,'Output check failed')
+  }
+  # write messages
+  message<-paste0(message,collapse='\n')
+  writeLines(message, paste0(getwd(),location,as_date(Month),'.txt'))
+  # delete temp files or the hard drive will explode
+  unlink(paste0(tempdir(),"\\",dir(tempdir())),recursive=T)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# once everything is downloaded, let's combine, expand, and date each article
+lst.master <- lapply(X = paste0(paste0(getwd(),location,'/Master/'),grep('.csv',dir(paste0(getwd(),location,'/Master/')),value=T)),
+                     FUN = fread)
+dt.master <- rbindlist(lst.master)
+
+dt.master <- ExpandEgypt(dt.master,writeResults = F)
+dt.master<-cbind(Date=as_date(substr(dt.master$dateTimeDocument,1,10)),dt.master)
