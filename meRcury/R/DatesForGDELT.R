@@ -1,5 +1,13 @@
 
 
+#' Title
+#'
+#' @param daysBack
+#'
+#' @return
+#' @export
+#'
+#' @examples
 DatesForGDELT <- function(daysBack){
   CurrentDate <- as.Date(format(Sys.time(), "%Y-%m-%d"))
   daysPrevious <- 1:daysBack
