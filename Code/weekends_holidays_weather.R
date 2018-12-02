@@ -2,7 +2,7 @@ library(lubridate)
 library(data.table)
 # install.packages('GSODR')
 library(GSODR)
-holidays<-fread('Mercury Challenge/code and data/Data/holidays.csv',header = T)[,1:3]
+holidays<-fread('GitHub/GiveMercuryAMoon/Data/holidays.csv',header = T)[,1:3]
 holidays[1,]$Date<-'1/3/2015'
 holidays$Date<-as.Date(holidays$Date,format='%m/%d/%Y')
 holidays<-unique(holidays[,list(Date,is_holiday=1)])
