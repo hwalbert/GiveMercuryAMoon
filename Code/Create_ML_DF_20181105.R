@@ -1,10 +1,21 @@
 # Create DF.ML for ML Analysis
-
-# We start with GSR.CU, GSR.MA & GDelt Data, filtered for country and date range
+library(data.table)
+library(plyr)
+library(dplyr)
+library(devtools)
+# install_github('abresler/gdeltr2')
+library(gdeltr2)
+# We start with GSR.CU, GSR.MA, Weather, weekend, holidays & GDelt Data, filtered for country and date range
 # fread...
+GDELT <-fread('GitHub/GiveMercuryAMoon/Data/GDELT_EGYPT.csv')
+GSR.CU <- fread('GitHub/GiveMercuryAMoon/Data/GSR_CivilUnrest_Full_thru20180930.csv')
+GSR.MA <- fread('GitHub/GiveMercuryAMoon/Data/GSR_MilitaryAction_Full_thru20180930.csv')
+weather <-fread('GitHub/GiveMercuryAMoon/Data/Egypt_historical_weather.csv')
+date_info <- fread('GitHub/GiveMercuryAMoon/Data/weekends_and_holidays.csv')
+
 GDELT$Date <- as.Date(GDELT$Date, format = "%Y-%m-%d")
-GSR.CU$Event_Date <- as.Date(GSR.CU$Event_Date, format = "%Y-%m-%d")
-GSR.MA$Event_Date <- as.Date(GSR.MA$Event_Date, format = "%Y-%m-%d")
+GSR.CU$Event_Date <- as.Date(GSR.CU$Event_Date, format = "%m/%d/%Y")
+GSR.MA$Event_Date <- as.Date(GSR.MA$Event_Date, format = "%m/%d/%Y")
 
 
 # Each row is one day...
