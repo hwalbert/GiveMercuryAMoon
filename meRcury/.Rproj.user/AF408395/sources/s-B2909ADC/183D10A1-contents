@@ -1,54 +1,74 @@
-###Food Desert ABM Experiments
+###Mercury ABM Experiments
 ###Harold Walbert
-###hwalbert@gmu.edu
+###hwalbert@guidehouse.com
 
 
 ###Need to install the required package and then load and attach the package
 #install.packages("RNetLogo")
-library(RNetLogo)
+
 library(dplyr)
-library(rJava)
+#library(rJava)
+Sys.setenv(JAVA_HOME="C:\\Program Files\\NetLogo 6.0.4\\runtime")
+library(RNetLogo)
 setwd("C:/Program Files/NetLogo 6.0.4/app")
 
 #setwd('C:/Users/Harold/Documents/CSS/CSS600')
 ###This code starts the NetLogo GUI
 nl.path <- getwd()
-#NLStart(nl.path, nl.jarname = "netlogo-6.0.4.jar")
-NLStart(nl.path)
+NLStart(nl.path, nl.jarname = "netlogo-6.0.4.jar")
+#NLStart(nl.path)
 ###This loads a specific model saved on your computer
-NLLoadModel('C:/Users/Harold/Documents/CSS/CSS Spatial ABM/Food Desert ABM/Food Desert ABM v11.nlogo')
+NLLoadModel('C:/Users/hwalbert001/Documents/Mercury/CairoMercury_v2.2.nlogo')
+
+
+ModelSignal <- function(SL = c("up", "down"), intensity = c(1,2,3)){
+  if(SL == "up"){
+    signal <- .01 * intensity
+  }else{
+    if(SL == "down"){
+      signal <- -.01 * intensity
+    }
+  }
+  
+  NLCommand(paste("set state-legitimacy state-legitimacy + ", signal))
+}
+
+
 
 ResetDefaultValues <- function(){
-  NLCommand("set radius-size 6")
-  NLCommand("set d* 1.1")
-  NLCommand("set populationDenominator 300")
-  NLCommand("set education-factor 0.5")
-  NLCommand("set Calculate-Accessibility-Using-Socioeconomic-Data? TRUE")
+  NLCommand("set k 2.5")
+  NLCommand("set vision 3")
+  NLCommand("set authorityRatio 0.0025")
+  NLCommand("set state-legitimacy .5")
 }
-NumberOfRepetitions <- 100
+NumberOfRepetitions <- 3
+NumTicks <- 50
 
-#Reset default values and set d* to Low value
-ResetDefaultValues()
-NLCommand("set d* 0.3")
+results <- data.frame()
 
-LowdResultsEstimate <- data.frame()
-LowdResultsStErr <- data.frame()
-LowdPValue <- data.frame()
-LowdRSqr <- data.frame()
-LowdSumAcc <- data.frame()
-LowdMeanAcc <- data.frame()
-LowdAccIndex <- data.frame()
-LowdPerSupermarket <- data.frame()
-LowdPernotSupermarket <- data.frame()
-LowdRatio <- data.frame()
 for (i in 1:NumberOfRepetitions)
 {
-  NLCommand("setup")
-  NLCommand("draw")
-  NLCommand("make-pop")
-  NLDoCommand(7, "go")
-  peopleProperties <- NLGetAgentSet(c("accessibility","health","heart","overweight","edu","pov","fs"), "people", as.data.frame=TRUE)
-  reg <- lm(peopleProperties$health ~ peopleProperties$accessibility)
+  ResetDefaultValues()
+  NLCommand("setup-Environment")
+  NLCommand("setup-Agents")
+  #NLDoCommand(50, "go")
+  #x <- NLDoReport(iterations = 50, command = "go", reporter = c("UnrestChange * 100", "percentActive", "ticks"))
+  for(j in 1:NumTicks){
+  NLCommand("go")
+  x1 <- NLReport(c("UnrestChange * 100"))
+  x2 <- NLReport(c("percentActive"))
+  x3 <- NLReport(c("ticks"))
+  x4 <- c(i)
+  x <- data.frame(c(x1,x2,x3,x4))
+  results <- append(results, x)
+  ModelSignal(SL = "down", intensity = 1)
+  }
+}
+results <- data.frame(t(sapply(results, unlist)))
+names(results) <- c("UnrestChange", "PercentActive", "ticks", "runNumber")
+test <- summarize(group_by(results[results$ticks > 2,], runNumber), sd(UnrestChange))
+
+
 
   LowdResultsEstimate <- as.data.frame(append(LowdResultsEstimate, coef(summary(reg))["peopleProperties$accessibility","Estimate"]))
   LowdResultsStErr <- as.data.frame(append(LowdResultsStErr, coef(summary(reg))["peopleProperties$accessibility","Std. Error"]))

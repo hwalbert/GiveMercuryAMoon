@@ -9,4 +9,4 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Depends: dplyr, digest, devtools, stringi, purrrlyr, rJava, data.table, ggplot2, trelliscopejs, gdeltr2
+Depends: dplyr, digest, devtools, stringi, purrrlyr, rJava, data.table, ggplot2, trelliscopejs, gdeltr2, lubridate, purrr, stringr, icesTAF
