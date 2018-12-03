@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543788503398.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2879433509",
+    "id" : "2A5F9A43",
+    "lastKnownWriteTime" : 1543795207,
+    "last_content_update" : 1543795207614,
+    "path" : "~/GitHub/GiveMercuryAMoon/meRcury/R/CombineMasterFile.R",
+    "project_path" : "R/CombineMasterFile.R",
+    "properties" : {
+        "cursorPosition" : "34,2",
+        "scrollLine" : "2",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

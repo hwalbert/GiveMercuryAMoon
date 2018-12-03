@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543785875123.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3251301838",
+    "id" : "D968D48E",
+    "lastKnownWriteTime" : 1543792727,
+    "last_content_update" : 1543792727541,
+    "path" : "~/GitHub/GiveMercuryAMoon/meRcury/R/Check_GDELT_Dates.R",
+    "project_path" : "R/Check_GDELT_Dates.R",
+    "properties" : {
+        "cursorPosition" : "19,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

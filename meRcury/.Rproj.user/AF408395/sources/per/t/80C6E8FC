@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543785905032.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1798010334",
+    "id" : "80C6E8FC",
+    "lastKnownWriteTime" : 1543793237,
+    "last_content_update" : 1543793237287,
+    "path" : "~/GitHub/GiveMercuryAMoon/meRcury/R/GetGDELT2.R",
+    "project_path" : "R/GetGDELT2.R",
+    "properties" : {
+        "cursorPosition" : "35,27",
+        "scrollLine" : "22",
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

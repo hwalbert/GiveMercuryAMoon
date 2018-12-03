@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1543794838536.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BB09BBA",
+    "lastKnownWriteTime" : 3419473789575321445,
+    "last_content_update" : 1543794838536,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "941F4BCF",
+        "caption" : "AllEgyptGDELTData",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=AllEgyptGDELTData&cache_key=941F4BCF",
+        "displayedObservations" : 4965,
+        "environment" : "",
+        "object" : "AllEgyptGDELTData",
+        "preview" : 0,
+        "totalObservations" : 4965,
+        "variables" : 30
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
