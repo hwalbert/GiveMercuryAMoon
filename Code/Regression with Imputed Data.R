@@ -3,7 +3,8 @@ library(dplyr)
 library(data.table)
 library(zoo)
 
-data <- fread("C:/Users/pprasad001/Documents/GitHub/GiveMercuryAMoon/Data/Mercury_ML_20181201.csv")
+data <- fread("~/GitHub/GiveMercuryAMoon/Data/Mercury_ML_20181201.csv")
+"~/GitHub/GiveMercuryAMoon/Data/GDELT_EGYPT.csv"
 data$Neg.Tone.t1 <- na.approx(data$Neg.Tone.t1)
 data$Neg.Tone.t2 <- na.approx(data$Neg.Tone.t2)
 data$Neg.Tone.t3 <- na.approx(data$Neg.Tone.t3)
