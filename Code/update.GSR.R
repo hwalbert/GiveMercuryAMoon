@@ -23,9 +23,9 @@ update.GSR <- function(CU.Update = F, MA.Update = F, today = NA) {
     cu.data <- fread(file.CU)
     n.old <- nrow(cu.data)
     # Get latest date from existing data
-    last.dt <- max( as.Date( cu.data$Event_Date, format = "%m/%d/%Y" ) )
+    last.dt <- max( as.Date( cu.data$Event_Date, format = "%m/%d/%Y") )
     # Set up months to be pulled
-    diff.year <- year(today) - year(last.dt)
+    diff.year <- year(today, origin = as.Date("2018-01-01")) - year(last.dt, origin = as.Date("2018-01-01"))
     diff.month <- month(today) - month(last.dt)
     n.months <- (12*diff.year) + diff.month
     # Pull in GSR data from Github
@@ -58,7 +58,7 @@ update.GSR <- function(CU.Update = F, MA.Update = F, today = NA) {
     # Get latest date from existing data
     last.dt <- max( as.Date( ma.data$Event_Date, format = "%Y-%m-%d" ) )
     # Set up months to be pulled
-    diff.year <- year(today) - year(last.dt)
+    diff.year <- year(today, origin = as.Date("2018-01-01")) - year(last.dt, origin = as.Date("2018-01-01"))
     diff.month <- month(today) - month(last.dt)
     n.months <- (12*diff.year) + diff.month
     # Pull in GSR data from Github
