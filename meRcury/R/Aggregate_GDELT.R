@@ -5,7 +5,8 @@
 #'
 #' @examples
 Aggregate_GDELT <- function(){
-  HistoricalData <- fread(file = "~/GitHub/GiveMercuryAMoon/Data/GDELT_EGYPT.csv")
+  filelocation <- "~/GitHub/GiveMercuryAMoon/Data/GDELT_EGYPT.csv"
+  HistoricalData <- fread(file = filelocation)
   HistoricalData$Date <- NULL
 
   GDELTData <- GetGDELT()
@@ -18,6 +19,7 @@ Aggregate_GDELT <- function(){
   AllEgyptGDELTData$Date <- substr(AllEgyptGDELTData$dateTimeDocument, 1, 10)
   AllEgyptGDELTData$Date <- as.Date(AllEgyptGDELTData$Date, format = "%Y-%m-%d")
   #AllEgyptGDELTData <<- AllEgyptGDELTData
+  fwrite(AllEgyptGDELTData, file = filelocation)
   return(AllEgyptGDELTData)
 
 }

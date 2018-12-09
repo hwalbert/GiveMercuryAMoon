@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544395207312.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "24E62835",
+    "lastKnownWriteTime" : 1543780764,
+    "last_content_update" : 1543780764,
+    "path" : "~/GitHub/GiveMercuryAMoon/Code/Create_ML_DF_20181105.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "50,13",
+        "scrollLine" : "29"
+    },
+    "relative_order" : 14,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
