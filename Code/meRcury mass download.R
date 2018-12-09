@@ -97,12 +97,13 @@ ExpandEgypt <- function(EgyptData, writeResults = T){
 # folder structure
 icesTAF::mkdir(paste0(getwd(),location,'/Master'))
 
+
 # a giant for loop that downloads gdelt data for a given month,
 # extracts the egypt related info, combines it, saves it to a master folder,
 # and deletes them if all of the above is done successfully
 # Enter in start date and end date
 
-for (Month in seq.Date(from=as.Date('2015-04-01'),to=as.Date('2015-04-01'),by='month')){
+for (Month in seq.Date(from=as.Date('2018-12-01'),to=as.Date('2018-12-01'),by='month')){
   #create folder
   icesTAF::mkdir(paste0(getwd(),location,as_date(Month)))
   for (i in seq.Date(from=as_date(Month),as_date(Month)+months(1)-days(1),by='day')){
@@ -162,9 +163,12 @@ for (Month in seq.Date(from=as.Date('2015-04-01'),to=as.Date('2015-04-01'),by='m
 lst.master <- lapply(X = paste0(paste0(getwd(),location,'/Master/'),grep('.csv',dir(paste0(getwd(),location,'/Master/')),value=T)),
                      FUN = fread)
 dt.master <- rbindlist(lst.master)
+dt.master <- cbind(Date=as_date(substr(dt.master$dateTimeDocument,1,10)),dt.master)
+
+fwrite(dt.master,
+       file = 'GitHub/GiveMercuryAMoon/Data/GDELT_EGYPT.csv')
 
 dt.master <- ExpandEgypt(dt.master,writeResults = F)
-dt.master<-cbind(Date=as_date(substr(dt.master$dateTimeDocument,1,10)),dt.master)
 
 parse_gkg_mentioned_names<-function (gdelt_data, filter_na = T, return_wide = T) {
   parse_mentioned_names_counts <- function(field = "Interior Minister Chaudhry Nisar Ali Khan,47;Mullah Mansour,87;Afghan Taliban,180;Mullah Mansour,382;Mullah Mansor,753;Mullah Mansour,815;Mullah Mansour,1025", 
