@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544395702016.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "68C8FCC1",
+    "lastKnownWriteTime" : 1544396319,
+    "last_content_update" : 1544396319426,
+    "path" : "~/GitHub/GiveMercuryAMoon/meRcury/R/CreateEgyptPrediction.R",
+    "project_path" : "R/CreateEgyptPrediction.R",
+    "properties" : {
+        "cursorPosition" : "30,0",
+        "scrollLine" : "18",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,13 @@
+Package: meRcury
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: Harold Walbert <hwalbert@guidehouse.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Depends: gdeltr2, data.table, jsonlite, dplyr, Hmisc, zoo, rvest, curl, digest, devtools, stringi, purrrlyr, rJava, ggplot2, trelliscopejs, lubridate, purrr, stringr, icesTAF
+RoxygenNote: 6.1.1
