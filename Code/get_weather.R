@@ -8,7 +8,7 @@
 #'
 #' @examples
 get_weather<-function(where='CAI:9:EG'){
-  # library(rvest)
+  library(rvest)
   
   # pull the days from weather.com's 5-day weather forecast 
   days<-html_text(html_nodes(read_html(paste0('https://weather.com/weather/5day/l/',where)),
@@ -25,7 +25,7 @@ get_weather<-function(where='CAI:9:EG'){
   
   # pull the temperatures
   vec.temp<-
-    sapply(X = 1:5,
+    sapply(X = 2:6,
            FUN = function(X){
              temp<-html_text(html_nodes(read_html(paste0('https://weather.com/weather/5day/l/',where)),
                                         paste0('tr.closed.clickable:nth-of-type(',X,') > .temp')))
@@ -36,7 +36,7 @@ get_weather<-function(where='CAI:9:EG'){
   vec.temp.celsius<-
     unlist(lapply(X = vec.temp,
                   FUN = function(X){
-                    avg<-sum(as.numeric(unlist(strsplit(X,'Â°'))))/2
+                    avg<-sum(as.numeric(unlist(strsplit(X,'°'))))/2
                     avg.celsius<- (avg - 32) * 5/9
                     return(avg.celsius)
                   })) 
