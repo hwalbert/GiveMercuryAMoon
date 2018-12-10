@@ -11,7 +11,8 @@ Check_GDELT_Dates <- function(){
     NewDatesNeeded <- ""
   }else{
 
-  NewDatesNeeded <- as.Date(max(dates):Sys.Date(), format = "%Y-%m-%d", origin = "1970-01-01")
+  NewDatesNeeded <- seq.Date(from=as_date(max(dates))+days(1),
+                             to=Sys.Date(),by = 'day')
 
   }
   return(NewDatesNeeded)
