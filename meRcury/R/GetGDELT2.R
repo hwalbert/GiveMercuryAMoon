@@ -12,13 +12,13 @@
 
 
 GetGDELT <- function(DaysBack = NULL, writeResults = T, location = "~/GitHub/GiveMercuryAMoon/Data", Engine = "Egypt"){
-cat("Preparing the Full Global Knowledge Graph \n")
+  cat("Preparing the Full Global Knowledge Graph \n")
 
   if(!is.null(DaysBack)){
     dates = DatesForGDELT(daysBack = DaysBack)
   }else{
-  dates <- Check_GDELT_Dates()
-  if(dates == ""){return(data.frame())}
+    dates <- Check_GDELT_Dates()
+    if(length(dates)==0 ){return(data.frame())}
   }
 
   #This code grabs the Global Knowledge Graph data for the dates specified by the DatesForGDELT() function
