@@ -21,28 +21,28 @@ GetGDELT <- function(DaysBack = NULL, writeResults = T, location = "~/GitHub/Giv
     if(length(dates)==0 ){return(data.frame())}
   }
 
-  #This code grabs the Global Knowledge Graph data for the dates specified by the DatesForGDELT() function
-  GDELTData <-
-    suppressMessages(get_data_gkg_days_detailed(
-      dates = dates,
-      # dates = c("2018-09-08"),
-      table_name = 'gkg',
-      return_message = T
-    ))
+    #This code grabs the Global Knowledge Graph data for the dates specified by the DatesForGDELT() function
+    GDELTData <-
+      suppressMessages(get_data_gkg_days_detailed(
+        dates = dates,
+        # dates = c("2018-09-08"),
+        table_name = 'gkg',
+        return_message = T
+      ))
 
-  #if(nrow(GDELTData) < 1){stop("The pulled GDELT Data has no rows.")}
+    #if(nrow(GDELTData) < 1){stop("The pulled GDELT Data has no rows.")}
 
-  if(Engine == "Egypt"){
-    GDELTData<-ExtractEGYPT(GDELTData)
+    if(Engine == "Egypt"){
+      GDELTData<-ExtractEGYPT(GDELTData)
 
-    #dates <- gsub("-", "_", dates)
-    if(writeResults==T){
-      FolderForResults <- location
-      fwrite(GDELTData, file = paste(FolderForResults, "/GDELTDataDate", dates, ".csv", sep = ""))
+      #dates <- gsub("-", "_", dates)
+      if(writeResults==T){
+        FolderForResults <- location
+        fwrite(GDELTData, file = paste(FolderForResults, "/GDELTDataDate", i, ".csv", sep = ""))
+      }
     }
-  }
 
 
-return(GDELTData)
+  return(GDELTData)
 
 }

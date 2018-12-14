@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544763655648.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4007767456",
+    "id" : "5C625BD4",
+    "lastKnownWriteTime" : 1544763738,
+    "last_content_update" : 1544763738205,
+    "path" : "~/GitHub/GiveMercuryAMoon/meRcury/R/Aggregate_GDELT.R",
+    "project_path" : "R/Aggregate_GDELT.R",
+    "properties" : {
+        "cursorPosition" : "24,1",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

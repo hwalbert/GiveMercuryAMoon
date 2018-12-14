@@ -9,7 +9,7 @@ Aggregate_GDELT <- function(){
   HistoricalData <- fread(file = filelocation)
   HistoricalData$Date <- NULL
 
-  GDELTData <- GetGDELT()
+  GDELTData <- GetGDELT(writeResults = F)
 
   GDELTData[] <- lapply(GDELTData[], as.character)
 
